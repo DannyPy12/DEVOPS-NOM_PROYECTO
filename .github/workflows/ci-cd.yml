@@ -30,12 +30,13 @@ jobs:
       - name: Instalar Ruff
         run: pip install ruff
 
-      - name: Instalar dependencias de Node.js
-        run: npm install
-
       - name: Verificar código con Ruff
         working-directory: src
         run: ruff check .
+
+      - name: Ejecutar pruebas con pytest
+        working-directory: src
+        run: pytest
 
       - name: Login a GitHub Container Registry
         uses: docker/login-action@v3
